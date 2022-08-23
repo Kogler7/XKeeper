@@ -1,0 +1,10 @@
+2022-08-23
+[15:31:20] XKeeper > Welcome!
+[15:31:20] @admin > hello
+[15:31:34] XKeeper > Unexpected Command.
+[15:31:34] @admin > log
+[15:31:36] XKeeper > Namespace(user='admin', password='xxx')
+[15:31:36] @admin > bye
+[15:31:41] XKeeper > Unexpected Command.
+[15:31:41] @admin > exit
+[15:31:46] XKeeper > Goodbye!

@@ -1,6 +1,8 @@
 import argparse
+
 import time
 from tqdm import trange
+from log_proxy import LogProxy
 
 parser = argparse.ArgumentParser()
 
@@ -10,16 +12,21 @@ parser.add_argument('-p', '--password', default="xxx", help="password")
 
 args = parser.parse_args()
 
-tag = f"@{args.user}"
+user = args.user
+
+log = LogProxy(user)
+
+log.put("Welcome!")
 
 while True:
-    rcv = input(f"keeper{tag}>")
+    rcv = log.get()
     if rcv == "exit":
+        log.put("Goodbye!")
         exit()
     elif rcv == "log":
-        print(args)
+        log.put(args)
     elif rcv == "run":
         for i in trange(10):
             time.sleep(1)
     else:
-        print("Unexpected Command.")
+        log.put("Unexpected Command.")
